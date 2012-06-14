@@ -3,32 +3,28 @@ require 'cleverbot'
 
 class Bot
 	
-	def initialize
+	def initialize(params)
 		@client = Cleverbot::Client.new
+    @pitch = params[:pitch]
+    @name = params[:name]
 	end
 	
-
+  def name
+    @name
+  end
+  
+  def pitch
+    @pitch
+  end
+  
+  def speak(text)
+    speaker ||= Speech.new  
+    speaker.speak("<pitch middle = '#{@pitch}'> #{text}")
+  end
+    
 	def send(text)
 		@client.write text
 	end
 
 end
 
-bot1 = Bot.new
-bot2 = Bot.new
-
-current_bot = bot1
-
-puts initial_greeting = 'Hello'
-#speaker = Speech.new
-#speaker.speak initial_greeting
-puts reply = current_bot.send(initial_greeting)
-
-1000.times do
-
-	#speaker.speak(reply)
-	if current_bot == bot1 then current_bot = bot2 else current_bot = bot1 end
-	
-	puts reply = current_bot.send(reply)
-
-end
