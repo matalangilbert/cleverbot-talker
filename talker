@@ -25,9 +25,6 @@ end
 
 reply = current_bot.send(initial_greeting)
 
-
-
-
 while true do
 
 	if current_bot == bot1 then current_bot = bot2 else current_bot = bot1 end
