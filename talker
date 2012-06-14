@@ -1,0 +1,39 @@
+require_relative 'bot'
+
+bot1 = Bot.new({:name => "George", :pitch => -25})
+bot2 = Bot.new({:name => "Betty", :pitch => 25})
+
+current_bot = bot1
+
+puts "Enable audio? (Y/n)"
+response = gets.chomp.downcase
+
+enable_audio = case response
+when "y"
+  true
+else 
+  false
+end
+
+initial_greeting = 'Hello'
+puts "#{current_bot.name}:\t" + initial_greeting
+
+
+if enable_audio
+  current_bot.speak initial_greeting
+end
+
+reply = current_bot.send(initial_greeting)
+
+
+
+
+while true do
+
+	if current_bot == bot1 then current_bot = bot2 else current_bot = bot1 end
+  puts "#{current_bot.name}:\t" + reply
+	if enable_audio && !reply.nil? then current_bot.speak(reply) end
+    
+	reply = current_bot.send(reply)
+
+end
