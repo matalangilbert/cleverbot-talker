@@ -9,7 +9,7 @@ current_bot = bot1
 
 initial_greeting = 'Hello'
 
-p reply = current_bot.send(initial_greeting)
+reply = current_bot.send(initial_greeting)
 
 poster = Poster.new
 while true do
@@ -18,5 +18,7 @@ while true do
     
     poster.post_to_endpoint(content)
       
-p  	reply = current_bot.send(reply)
+  	reply = current_bot.send(reply)
+    
+    logger.debug reply
 end
