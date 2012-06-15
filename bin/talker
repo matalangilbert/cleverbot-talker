@@ -1,5 +1,5 @@
-require_relative 'bot'
-require_relative 'poster'
+require_relative '../bot'
+require_relative '../poster'
 require 'benchmark'
 
 bot1 = Bot.new({:name => "George", :pitch => -25})
@@ -18,7 +18,6 @@ while true do
     
     poster.post_to_endpoint(content)
       
-  	reply = current_bot.send(reply)
+  	p reply = current_bot.send(reply)
     
-    logger.debug reply
 end
