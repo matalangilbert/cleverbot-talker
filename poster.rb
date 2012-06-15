@@ -10,8 +10,7 @@ class Poster
   require 'uri'
   require 'net/http'
 
-  ENDPOINT = 'http://localhost:3000/messages/'
-  #ENDPOINT = 'http://hollow-flower-9984.herokuapp.com/messages'
+  ENDPOINT = 'http://hollow-flower-9984.herokuapp.com/messages'
   def post_to_endpoint(text)
     uri = URI.parse(ENDPOINT)
   

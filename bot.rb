@@ -1,4 +1,3 @@
-require_relative 'speech'
 require 'cleverbot'
 
 class Bot
@@ -15,11 +14,6 @@ class Bot
   
   def pitch
     @pitch
-  end
-  
-  def speak(text)
-    speaker ||= Speech.new  
-    speaker.speak("<pitch middle = '#{@pitch}'> #{text}")
   end
     
 	def send(text)
