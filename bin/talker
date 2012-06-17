@@ -20,5 +20,7 @@ while true do
     rescue Errno::ECONNREFUSED
       puts "*** Error: can't connect to rails server ***"
     end
-  	p reply = current_bot.send(reply)
+    begin
+    	p reply = current_bot.send(reply)
+    end
 end
