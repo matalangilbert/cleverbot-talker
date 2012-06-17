@@ -23,7 +23,13 @@ class Bot
   end
     
 	def send(text)
-		@client.write text
+    begin
+  		@client.write text
+    rescue Timeout::Error, Errno::ETIMEDOUT
+      puts "*** Failed to send to Cleverbot server ***"
+      puts "*** Reconnecting bot ***"
+  		@client = Cleverbot::Client.new
+    end
 	end
 
 end
