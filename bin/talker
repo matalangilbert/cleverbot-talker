@@ -13,10 +13,8 @@ reply = current_bot.send(initial_greeting)
 
 poster = Poster.new
 while true do
-  	if current_bot == bot1 then current_bot = bot2 else current_bot = bot1 end
-    begin
-      content = "#{current_bot.name}: " + reply.gsub("Cleverbot", current_bot.name)
-    end
+  if current_bot == bot1 then current_bot = bot2 else current_bot = bot1 end
+    content = "#{current_bot.name}: " + reply.gsub("Cleverbot", current_bot.name)
     begin
       poster.post_to_endpoint(content)
     rescue Errno::ECONNREFUSED
