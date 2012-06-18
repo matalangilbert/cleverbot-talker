@@ -21,6 +21,6 @@ while true do
       puts "*** Error: can't connect to rails server ***"
     end
     begin
-    	p reply = current_bot.send(reply)
+    	p reply = current_bot.send(reply).gsub("kisses harder","")
     end
 end
